@@ -58,3 +58,7 @@ JWT_SECRET=<Some secret key use to hash your password>
         connected to MongoDB @ac-nr0bkff-shard-00-01.awn8gnn.mongodb.net
         ```
 2. user postman to test the route. home route is `localhost:3001/` as specificized in the app.js file
+    - signup
+    <img src="https://github.com/JessieChiu1/mentor_JWT_practice/blob/main/images/signup_postman.PNG" alt="sign up postman result"/>
+    - login
+    <img src="https://github.com/JessieChiu1/mentor_JWT_practice/blob/main/images/login_postman.PNG" alt="log in postman result"/>
