@@ -4,6 +4,8 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
 
+// Note on why you need to add "Bearer" in the auth token
+// https://security.stackexchange.com/questions/108662/why-is-bearer-required-before-the-token-in-authorization-header-in-a-http-re
 router.post("/signup", async (req, res) => {
 	try {
 		// pull username/pw from req body

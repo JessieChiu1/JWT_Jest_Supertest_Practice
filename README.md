@@ -36,7 +36,7 @@ JWT_SECRET=<Some secret key use to hash your password>
     - `auth.js` - auth routes
     - `user.js` - user routes
 - `.env` - stores all of your **sensitive** information, remember to add this to `.gitignore` so you don't accidentally push this to GitHub
-- `.gitignore` - should have both `node_modules` and `.env``
+- `.gitignore` - should have both `node_modules` and `.env`
 
 ## libraries and what they are
 - `express` - framework for the Node.js backend. (Middleware, Routing, loading static files, error handling)
