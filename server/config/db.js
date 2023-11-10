@@ -1,4 +1,9 @@
 const mongoose = require("mongoose");
+const path = require("path");
+const dotenv = require("dotenv");
+
+// Load environment variables from the .env file in the server folder
+dotenv.config({ path: path.join(__dirname, "../.env") });
 
 // create the db
 const db = mongoose.connection;
