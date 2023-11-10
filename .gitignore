@@ -25,3 +25,4 @@
 /server/npm-debug.log*
 /server/yarn-debug.log*
 /server/yarn-error.log*
+/server/nodemodules/
