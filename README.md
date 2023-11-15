@@ -25,20 +25,37 @@ JWT_SECRET=<Some secret key use to hash your password>
     - add this string to your `.env` file
 
 
-## File strucures and file you will need to create
-- models (folder with all of your schema)
-    - `User.js` - This is the object `User` schema
-- config (folder of your MongoDB Cloud database connection)
-    - `db.js` - This is the code for connection to the cloud database
-- server (folder with all of the routes for CRUD functions)
-    - *Note that when you require a file `require("../config/db");`, we are actually running the file, so the database will be connecting when you just run the `node app.js`*
-    - `app.js` - (entry point)
-    - `auth.js` - auth routes
-    - `user.js` - user routes
-- `.env` - stores all of your **sensitive** information, remember to add this to `.gitignore` so you don't accidentally push this to GitHub
-- `.gitignore` - should have both `node_modules` and `.env`
+## File structures and file you will need to create
+**Note that most real world project actual separate the client/server into two repos**
+- `client` (front-end)
+    - `public` - all static file/images/etc
+    - `src`
+        - `components` - smaller react components that can generally be reuse
+        - `routes` - react components of the whole page layout
+        - `services` - similar to controller folder in the backend, it is the functions that handle the responses from backend
+    - `.env` - include the `REACT_APP_API_URL` that can be handle the react api url, need to switch into something else if deployed
+    - `.gitignore` - include the `.env`
+- `server` (back-end)
+    - `models` (folder with all of your schema)
+        - `User.js` - This is the object `User` schema
+    - `config` (folder of your MongoDB Cloud database connection)
+        - `db.js` - This is the code for connection to the cloud database
+    - `routes` (folder with all of the routes for CRUD functions)
+        - `auth.js` - auth routes
+        - `user.js` - user routes
+    - `app.js` - handle express and middleware
+    - `.env` - stores all of your **sensitive** information, remember to add this to `.gitignore` so you don't accidentally push this to GitHub
+    - `.gitignore` - should have both `node_modules` and `.env`
+    - `server.js` - (entry-point) will activate the DB and connect to PORT 3001
+        - *Note that when you require a file `require("../config/db");`, we are actually running the file, so the database will be connecting when you just run the `node app.js`*
 
 ## libraries and what they are
+**Frontend**
+- `react`
+- `react-dom`
+- `react-dom-router`
+
+**Backend**
 - `express` - framework for the Node.js backend. (Middleware, Routing, loading static files, error handling)
 - `dotenv` - access your sensitive information from the `.env` file, things such as API key, secret key, password, and other sensitive informations you don't want other to use
 - `bcrypt` - used for securely hashing passwords, that's what the `SECRET_KEY` is for, a code to hash and un-hash the password for verification
@@ -49,16 +66,16 @@ JWT_SECRET=<Some secret key use to hash your password>
         - payload is the actual information on the user but hashed
         - signature helps determined if the JWT is valid or not
     - [What is JWT and Why you Should Use a JWT - video](https://www.youtube.com/watch?v=7Q17ubqLfaM)
+- `supertest` - will help test end-point 
+- `jest` - test overall functionality
 
-## Running the file:
-1. `node server/app.js`
-    - You should see something like this:
-        ```
-        listening
-        connected to MongoDB @ac-nr0bkff-shard-00-01.awn8gnn.mongodb.net
-        ```
-2. user postman to test the route. home route is `localhost:3001/` as specificized in the app.js file
-    - signup
-    <img src="https://github.com/JessieChiu1/mentor_JWT_practice/blob/main/images/signup_postman.PNG" alt="sign up postman result"/>
-    - login
-    <img src="https://github.com/JessieChiu1/mentor_JWT_practice/blob/main/images/login_postman.PNG" alt="log in postman result"/>
+## Running the files:
+1. `node server/app.js` - this will activate the DB and the backend port 3001
+You should see something like this:
+    ```
+    listening
+    connected to MongoDB @ac-nr0bkff-shard-00-01.awn8gnn.mongodb.net
+    ```
+- Note that before you move on to the front end, you should test your route via Postman
+2. cd into the client folder and run this command `npm start`
+    - You should be directly route to `http://localhost:3000/` in browser

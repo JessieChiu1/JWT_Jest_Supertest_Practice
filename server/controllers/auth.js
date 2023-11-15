@@ -35,7 +35,10 @@ const signUp = async (req, res) => {
 		});
 		// then we will generate the token, and include a user id in the token
 		// the payload is the information stored in the JWT token
-		const payload = { username: newUser.username, id: newUser._id.toString() };
+		const payload = { 
+			username: newUser.username, 
+			id: newUser._id.toString() 
+		};
 	
 		// create token, and sign the token
 		const authToken = jwt.sign(payload, process.env.JWT_SECRET, {
