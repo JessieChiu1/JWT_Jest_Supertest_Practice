@@ -69,6 +69,13 @@ JWT_SECRET=<Some secret key use to hash your password>
 - `supertest` - will help test end-point 
 - `jest` - test overall functionality
 
+## Setting up Front-end
+**Note that before you move on to the front end, you should test your route via Postman**
+1. At the root of your project, run this command to setup basic react app:
+```
+npx create-react-app client
+```
+
 ## Running the files:
 1. `node server/app.js` - this will activate the DB and the backend port 3001
 You should see something like this:
@@ -76,6 +83,5 @@ You should see something like this:
     listening
     connected to MongoDB @ac-nr0bkff-shard-00-01.awn8gnn.mongodb.net
     ```
-- Note that before you move on to the front end, you should test your route via Postman
 2. cd into the client folder and run this command `npm start`
     - You should be directly route to `http://localhost:3000/` in browser
