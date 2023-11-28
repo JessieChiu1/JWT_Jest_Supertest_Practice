@@ -1,6 +1,5 @@
 const app = require("../../app")
 const { MongoMemoryServer } = require("mongodb-memory-server");
-// const createServer = require("../util/server");
 const supertest = require("supertest");
 const mongoose = require("mongoose")
 const dotenv = require("dotenv/config");

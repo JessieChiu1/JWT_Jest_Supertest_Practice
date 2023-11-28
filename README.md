@@ -28,7 +28,7 @@ You will change the url when you deploy it.
 5. Onces the Database is set up, under **Deployment - Databases**
     - click **Connect**
     - click **Connect your application**
-    - copy your connection string, you will need to replace the **<username>** and **<password>** with the username and passworf from step 3
+    - copy your connection string, you will need to replace the **<username>** and **<password>** with the username and password from step 3
     - add this string to your `.env` file
 
 
@@ -72,6 +72,7 @@ You will change the url when you deploy it.
 - `express` - framework for the Node.js backend. (Middleware, Routing, loading static files, error handling)
 - `dotenv` - access your sensitive information from the `.env` file, things such as API key, secret key, password, and other sensitive informations you don't want other to use
 - `bcrypt` - used for securely hashing passwords, that's what the `SECRET_KEY` is for, a code to hash and un-hash the password for verification
+- `morgan` - used to log the express routing (status code)
 - `jsonwebtoken`
     - authentication and authorization tool
     - consist of 3 part `<header>.<payload>.<signature>`
@@ -81,6 +82,7 @@ You will change the url when you deploy it.
     - [What is JWT and Why you Should Use a JWT - video](https://www.youtube.com/watch?v=7Q17ubqLfaM)
 - `supertest` - will help test end-point 
 - `jest` - test overall functionality
+- `mongodb-memory-server` - to establish a empty mongodb shell for testing
 
 **In the server folder**
 ```
@@ -88,8 +90,10 @@ npm install express
 npm install dotenv
 npm install bcrypt
 npm install jsonwebtoken
+npm install morgan
 npm install supertest --save-dev
 npm install --save-dev jest
+npm install mongodb-memory-server --save-dev
 ```
 
 ## Setting up Front-end
@@ -100,7 +104,7 @@ npx create-react-app client
 ```
 
 ## Running the files:
-1. `node server/app.js` - this will activate the DB and the backend port 3001
+1. `node server/server.js` - this will activate the DB and the backend port 3001
 You should see something like this:
     ```
     listening
