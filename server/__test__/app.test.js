@@ -11,7 +11,7 @@ const app = require("../app")
 // describe(file you are testing, function that contain the test suite)
 describe("app.js", () => {
     it("response correctly when processing the home route", async() => {
-        // 1. setup
+        // 1. setup 
 
         // 2. act/action
         const response = await request(app).get("/")

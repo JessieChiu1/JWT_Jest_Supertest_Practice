@@ -1,14 +1,21 @@
 # Notes for JWT refresher with Discord Mentor
 
 ## Setting up .env file
-Your `.env` file should look something like this:
+Your `.env` file in the server folder should look something like this:
 ```
-DB_URI=<MongoDB URI String>
+DB_URI=<MongoDB URI String with "/dev">
 JWT_SECRET=<Some secret key use to hash your password>
 ```
 
 - You will get `DB_URI` from setting up your MongoDB Atlas
 - `JWT_SECRET` is just a random string, you can put anything here 
+
+Your `.env` in the client folder should look something like this:
+```
+REACT_APP_API_URL=http://localhost:3001
+```
+
+You will change the url when you deploy it.
 
 ## Setting up MongoDB Atlas
 
@@ -36,6 +43,12 @@ JWT_SECRET=<Some secret key use to hash your password>
     - `.env` - include the `REACT_APP_API_URL` that can be handle the react api url, need to switch into something else if deployed
     - `.gitignore` - include the `.env`
 - `server` (back-end)
+    - `__test__` (jest/supertest testing folder)
+        - `app.test.js`
+        - `controllers`
+            - `auth.test.js`
+            - `user.test.js`
+    - `coverage` (not very verse with this folder but it is created by jest/superjest as a report on the testing)
     - `models` (folder with all of your schema)
         - `User.js` - This is the object `User` schema
     - `config` (folder of your MongoDB Cloud database connection)
@@ -69,6 +82,16 @@ JWT_SECRET=<Some secret key use to hash your password>
 - `supertest` - will help test end-point 
 - `jest` - test overall functionality
 
+**In the server folder**
+```
+npm install express
+npm install dotenv
+npm install bcrypt
+npm install jsonwebtoken
+npm install supertest --save-dev
+npm install --save-dev jest
+```
+
 ## Setting up Front-end
 **Note that before you move on to the front end, you should test your route via Postman**
 1. At the root of your project, run this command to setup basic react app:
@@ -85,3 +108,11 @@ You should see something like this:
     ```
 2. cd into the client folder and run this command `npm start`
     - You should be directly route to `http://localhost:3000/` in browser
+
+## End to end testing with Jest/SuperJest:
+- **End to end testing vs unit testing**
+    - end to end testing are like postman, we are testing the API endpoint.
+    - unit testing are individual test for functions
+- I did not test out everything but this is a sample of what you can expect:
+    - testing all signup/login/homepage/user profile page.
+

@@ -13,8 +13,6 @@ app.use((req, res, next) => {
 	res.header("Access-Control-Allow-Origin", "http://localhost:3000");
 	res.header("Access-Control-Allow-Methods", "POST,GET");
 	res.header("Access-Control-Allow-Headers", "Content-Type");
-	// need to add this to fix the route not working
-	res.header('Content-Type','application/json');
 	next();
 });
 
